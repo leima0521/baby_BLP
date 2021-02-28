@@ -1,6 +1,6 @@
 ## A gentle introduction to BLP
 
-This repo includes the BLP estimation for the second-year IO class taught by [Prof. Marc Rysman](http://sites.bu.edu/mrysman/teaching/). All errors are my own.
+This repo estimates a BLP-type random coefficients model (demand side only). It is part of the problem set of the second-year PhD IO class taught by [Prof. Marc Rysman](http://sites.bu.edu/mrysman/teaching/). All errors are my own.
 
 ### Setup
 
@@ -12,7 +12,7 @@ The estimation uses [OTC_data.xlsx](https://github.com/leima0521/baby_BLP/blob/m
 
 [baby_blp.jl](https://github.com/leima0521/baby_BLP/blob/master/baby_blp.jl) estimates a simple BLP model on the demand side using [Julia v1.5.3](https://julialang.org/). A detailed description of the procedure can be found in [baby_blp.pdf](https://github.com/leima0521/baby_BLP/blob/master/baby_blp.pdf). There are two main parts of the code:
 
-- The first part solves the fixed point problem to compute the mean utility $\delta$. Utility is assumed to be a linear function of `price`, `promotion`, and product fixed effects. The random coefficient term is on the constant term. I assume the variance of the random coefficient is 1 when demonstrating the fixed point algorithm.
+- The first part solves the fixed point equation to compute the mean utility. Utility is assumed to be a linear function of `price`, `promotion`, and product fixed effects. The random coefficient is on the constant term. I assume the variance of the random coefficient is 1 when demonstrating the fixed point algorithm.
 
-- The second part estimates the parameters using GMM. Price is assumed to be exogenous. The instrument vector $z$ includes `price`, `promotion`, product fixed effects, and `cost`. Instead of computing the efficient weighting matrix, I just use $z'z/n$. 
+- The second part estimates the parameters using GMM. Price is assumed to be exogenous. The instrument vector Z includes `price`, `promotion`, product fixed effects, and `cost`. Instead of computing the efficient weighting matrix, I just use Z'Z/n. 
 
